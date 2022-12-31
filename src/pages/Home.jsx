@@ -63,12 +63,9 @@ const Home = () => {
   // if it does, make a new request to fetch the next 7 items
   const handleScroll = useCallback(() => {
     if (
-      window.innerHeight + document.documentElement.scrollTop <
-        document.documentElement.offsetHeight - 5 ||
-      window.innerHeight + document.documentElement.scrollTop >
-        document.documentElement.offsetHeight + 5 ||
-      window.innerHeight + document.documentElement.scrollTop ===
-        document.documentElement.offsetHeight
+      window.innerHeight + document.documentElement.scrollTop !==
+      document.documentElement.offsetHeight
+  
     ) {
       setIsFetching(true);
     }
@@ -139,6 +136,7 @@ const Home = () => {
                   src={item?.url}
                   effect="blur"
                   alt=""
+                  visibleByDefault={true}
                 />
               </div>
             )
@@ -171,7 +169,7 @@ const Home = () => {
       <Header />
       <div className="max-w-7xl w-full mx-auto py-6">
         <SpotLight data={spotlight} />
-        <div className="slr space-y-8 px-12 min-h-screen mb-10">
+        <div className="slr space-y-8 px-12 mb-10">
           {previous.map((item, index) => (
             <HorizontalScroll key={index} data={item} />
           ))}
