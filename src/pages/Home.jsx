@@ -137,6 +137,7 @@ const Home = () => {
                   key={index}
                   className="max-w-[500px] w-[70vw] sm:w-auto h-[350px] object-contain sm:object-none"
                   src={item?.url}
+                  effect="blur"
                   alt=""
                 />
               </div>
